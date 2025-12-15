@@ -3,13 +3,25 @@
  * Configuration de la connexion MySQL
  */
 
+// Charger les variables d'environnement
+require_once __DIR__ . '/env_loader.php';
+
 class Database {
-    private $host = 'localhost';
-    private $db_name = 'energy_dashboard';
-    private $username = 'root';  // Modifier selon votre configuration
-    private $password = '';      // Modifier selon votre configuration
-    private $charset = 'utf8mb4';
+    private $host;
+    private $db_name;
+    private $username;
+    private $password;
+    private $charset;
     private $conn = null;
+
+    public function __construct() {
+        // Charger la configuration depuis les variables d'environnement
+        $this->host = EnvLoader::get('DB_HOST', 'localhost');
+        $this->db_name = EnvLoader::get('DB_NAME', 'energy_dashboard');
+        $this->username = EnvLoader::get('DB_USERNAME', 'root');
+        $this->password = EnvLoader::get('DB_PASSWORD', '');
+        $this->charset = EnvLoader::get('DB_CHARSET', 'utf8mb4');
+    }
 
     /**
      * Établir la connexion à la base de données

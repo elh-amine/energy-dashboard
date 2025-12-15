@@ -3,19 +3,29 @@
  * Configuration de l'API ThingsBoard
  */
 
+// Charger les variables d'environnement
+require_once __DIR__ . '/env_loader.php';
+
 class ThingsBoardConfig {
     // URL de l'instance ThingsBoard
-    private $base_url = 'https://demo.thingsboard.io';  // Modifier selon votre instance
-    
+    private $base_url;
+
     // Identifiants d'authentification
-    private $username = 'tenant@thingsboard.org';  // Modifier
-    private $password = 'tenant';                   // Modifier
-    
+    private $username;
+    private $password;
+
     // Token d'authentification (sera généré dynamiquement)
     private $token = null;
-    
+
     // Durée de validité du token en secondes
     private $token_expiry = 3600;
+
+    public function __construct() {
+        // Charger la configuration depuis les variables d'environnement
+        $this->base_url = EnvLoader::get('TB_BASE_URL', 'https://demo.thingsboard.io');
+        $this->username = EnvLoader::get('TB_USERNAME', 'tenant@thingsboard.org');
+        $this->password = EnvLoader::get('TB_PASSWORD', 'tenant');
+    }
     
     /**
      * Obtenir l'URL de base de ThingsBoard

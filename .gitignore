@@ -1,0 +1,42 @@
+# Fichiers d'environnement
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+error_log
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Fichiers de l'éditeur
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Cache PHP
+*.cache
+
+# Dépendances (si vous utilisez Composer)
+/vendor/
+composer.lock
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+*.old
+
+# Fichiers de configuration locale
+config/local.php
