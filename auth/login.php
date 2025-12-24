@@ -1,4 +1,5 @@
 <?php
+//auth/login.php
 session_start();
 require_once '../config/database.php';
 
@@ -65,7 +66,7 @@ try {
                 'username' => $user['username'],
                 'role' => $user['role']
             ],
-            'redirect' => '../views/dashboard.php'
+            'redirect' => '../views/dashboard_grid.php'
         ]);
         
     } else {

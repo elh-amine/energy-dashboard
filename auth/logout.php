@@ -1,4 +1,5 @@
 <?php
+//auth/logout.php
 session_start();
 
 // Détruire toutes les variables de session

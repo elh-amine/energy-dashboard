@@ -1,9 +1,10 @@
 <?php
+//views/login.php
 session_start();
 
 // Si l'utilisateur est déjà connecté, rediriger vers le dashboard
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    header('Location: dashboard.php');
+    header('Location: dashboard_grid.php');
     exit;
 }
 

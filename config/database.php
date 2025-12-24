@@ -1,4 +1,5 @@
 <?php
+//config/database.php
 /**
  * Configuration de la connexion MySQL
  */
@@ -49,5 +50,9 @@ class Database {
     public function isConnected() {
         return $this->conn !== null;
     }
+}
+function getDBConnection() {
+    $database = new Database();
+    return $database->connect();
 }
 ?>

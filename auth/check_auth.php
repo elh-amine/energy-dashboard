@@ -1,4 +1,5 @@
 <?php
+//auth/check_auth.php
 /**
  * Middleware pour vérifier l'authentification
  * À inclure au début de chaque page protégée
